@@ -9,19 +9,19 @@ To segment the image using global thresholding, adaptive thresholding and Otsu's
 ## Algorithm
 
 ### Step1:
-
+Import required packages
 
 ### Step2:
-
+Import the image to operate on
 
 ### Step3:
-
+Convert the image to grayscale image.
 
 ### Step4:
 
-
+Apply threshold operators on the image.
 ### Step5:
-
+Display the output.
 
 ## Program
 
