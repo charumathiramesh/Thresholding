@@ -9,51 +9,74 @@ To segment the image using global thresholding, adaptive thresholding and Otsu's
 ## Algorithm
 
 ### Step1:
-<br>
+
 
 ### Step2:
-<br>
+
 
 ### Step3:
-<br>
+
 
 ### Step4:
-<br>
+
 
 ### Step5:
-<br>
+
 
 ## Program
 
 ```python
+NAME : CHARUMATHI R
+REF NO : 212222240021
 # Load the necessary packages
-
+import cv2
+import matplotlib.pyplot as plt
+import numpy as np
 
 
 
 
 # Read the Image and convert to grayscale
-
+image=cv2.imread("image.jpeg")
+image1=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
 
 
 
 # Use Global thresholding to segment the image
-
+ret, thresh1 = cv2.threshold(image1,100,200,cv2.THRESH_BINARY)
+ret, thresh2 = cv2.threshold(image1,100,200,cv2.THRESH_BINARY_INV)
+ret, thresh3 = cv2.threshold(image1,100,200,cv2.THRESH_TRUNC)
+ret, thresh4 = cv2.threshold(image1,100,200,cv2.THRESH_TOZERO)
+ret, thresh5 = cv2.threshold(image1,100,200,cv2.THRESH_TOZERO_INV)
 
 
 
 # Use Adaptive thresholding to segment the image
 
-
+th1=cv2.adaptiveThreshold(image1,255,cv2.ADAPTIVE_THRESH_MEAN_C,cv2.THRESH_BINARY,11,2)
+th2=cv2.adaptiveThreshold(image1,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,11,2)
 
 
 # Use Otsu's method to segment the image 
-
+ret2,th3 = cv2.threshold(image1,0,255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)
 
 
 
 # Display the results
-
+titles=["Gray Image","THRESH_BINARY","THRESH_BINARY_INV","THRESH_TRUNC"
+       ,"THRESH_TOZERO","THRESH_TOZERO_INV","ADAPTIVE_THRESH_MEAN_C","ADAPTIVE_THRESH_GAUSSIAN_C","OTSU"]
+images=[image1,thresh1,thresh2,thresh3,thresh4,thresh5,th1,th2,th3]
+for i in range(0,9):
+    plt.figure(figsize=(10,10))
+    plt.subplot(1,2,1)
+    plt.title("Original Image")
+    plt.imshow(image)
+    plt.axis("off")
+    plt.subplot(1,2,2)
+    plt.title(titles[i])
+    plt.imshow(cv2.cvtColor(images[i],cv2.COLOR_BGR2RGB))
+    plt.axis("off")
+    plt.show()
 
 
 
@@ -62,32 +85,19 @@ To segment the image using global thresholding, adaptive thresholding and Otsu's
 ## Output
 
 ### Original Image
-<br>
-<br>
-<br>
-<br>
-<br>
+![download](https://github.com/charumathiramesh/Thresholding/assets/120204455/59487456-5ef8-4409-9c28-065f3469acf5)
+
+
 
 ### Global Thresholding
-<br>
-<br>
-<br>
-<br>
-<br>
+![download](https://github.com/charumathiramesh/Thresholding/assets/120204455/01e8e584-1313-4a52-8782-67023eb6d818)
+![download](https://github.com/charumathiramesh/Thresholding/assets/120204455/d7fdf0ce-e242-47b5-8a6c-fdcace6dbc98)
+
 
 ### Adaptive Thresholding
-<br>
-<br>
-<br>
-<br>
-<br>
+
 
 ### Optimum Global Thesholding using Otsu's Method
-<br>
-<br>
-<br>
-<br>
-<br>
 
 
 ## Result
